@@ -72,9 +72,9 @@ app.get('/api', function api_index(req, res) {
 
 app.get('/api/profile', function (req, res){
   res.json({profile}); // returns profile variable defined above
-}) // Profile end point STILL needs work
+}); // Profile end point STILL needs work
 
-}
+
 
 /**********
  * SERVER *

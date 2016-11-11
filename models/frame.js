@@ -5,7 +5,7 @@
     brand: String,
     material: String,
     suspension: Boolean,
-    size: [XLarge, Large, Medium, Small],
+    size: String,
     price: String,
     image: String
   });
