@@ -32,10 +32,21 @@ app.use(express.static('public'));
 /*
  * HTML Endpoints
  */
-
-app.get('/', function homepage(req, res) {
+    /* --- Calls index.html to default homepage --- */
+app.get('/', function homepage( req, res ) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+    /* --- Calls all frame objects --- */
+app.get('/api/frames', function( req, res ) {
+  db.Frame.find( function ( err, frames){
+    if (err){
+      console.log('error has occured ', err);
+    }
+    res.json(frames);
+  });
+});
+
 
 var profile = {
   name: 'Dan Kingdon',
