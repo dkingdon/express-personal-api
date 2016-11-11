@@ -8,3 +8,7 @@ h1 {
   margin-top: 100px;
   text-align: center;
 }
+
+.col-md-8 {
+  margin: 10, 10, 10, 10;
+}
