@@ -42,7 +42,7 @@ var profile = {
   githubLink: 'https://github.com/dkingdon',
   githubProfileImage: 'https://avatars2.githubusercontent.com/u/9341340?v=3&s=460',
   personalSiteLink: 'https://dkingdon.github.io/',
-  currentCity: San Leandro, // is there something i can do that will update this dynamically? Maybe the router i hit when i turn on my mac?
+  currentCity: 'San Leandro', // is there something i can do that will update this dynamically? Maybe the router i hit when i turn on my mac?
   hobbies: [
     {name: 'Hockey', type: 'Ice', currentLevel: 'Intermediate'},
     {name: 'Mountain Biking', type: 'Downhill', currentLevel: 'Reckless'},

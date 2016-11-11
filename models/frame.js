@@ -7,6 +7,7 @@
     suspension: Boolean,
     size: [XLarge, Large, Medium, Small],
     price: String,
+    image: String
   });
 
 var Frame = mongoose.model('Frame', FrameSchema);
