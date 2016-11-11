@@ -2,10 +2,12 @@
   Schema = mongoose.Schema;
 
   var FrameSchema = new Schema({
+    name: String,
     brand: String,
     material: String,
     suspension: Boolean,
-    size: String,
+    travel: String,
+    year: String,
     price: String,
     image: String
   });
