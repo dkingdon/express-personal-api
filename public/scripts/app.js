@@ -6,7 +6,7 @@ var $frameList;
 
 $(document).ready(function(){
 
-    $frameList = $('#frameDisplay');
+    $frameList = $('#content');
 
     /* - - - handlebars  - - - */
     var source = $('#frame-display-template').html(); //pulling html structure
@@ -19,12 +19,9 @@ $(document).ready(function(){
       error: handleError
     });
 
-      // Thinks this is accomplished by using the $frameList variable.
-    // $('#frameDisplay').append(frameResultHtml);
-
 });
 
-function render () {
+function render() {
     $frameList.empty();
 
       /* - - - Handlebars template variable  - - - */
@@ -32,19 +29,19 @@ function render () {
 
       //Adding template output to page
     // $frameList.append(frameResultHtml);
-    $('#frameDisplay').append(frameResultHtml)
+    $('#content').append(frameResultHtml)
 
 }
 
     /* - - - Success for ajax GET: Frames call - - - */
   function handleSuccess(json) {
     allFrames = json;
-    console.log(json); // temp to see what the
+    console.log(json); // temp to see what the output is
     render();
 }
 
     /* - - - Fail for ajax GET: Frames call - - - */
   function handleError(e) {
     console.log('uh oh');
-    $('#frameDisplay').text('Failed to load frames, is the server working?');
+    $('h2').text('Failed to load frames, is the server working?');
 }

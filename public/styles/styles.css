@@ -4,20 +4,54 @@ body {
   background-color: skyblue; /* Sanity Check! */
 }
 
-h1 {
+.row {
+  border-bottom: 1px solid white;
+}
+
+.container h1 {
   margin-top: 100px;
   text-align: center;
 }
 
-/*.col-md-8 {
-  margin: 10, 10, 10, 10;
-}*/
-
-.row {
-  text-align: center;
+#content {
   border: 1px solid white;
 }
 
+#content img {
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 10px;
+  float: left;
+  border: 1px solid white;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 8px;
+  padding-bottom: -10px;
+  margin-bottom: -10px;
+}
+
+/*h2, h3 {
+  display: inline;
+}*/
+
+h3 {
+  margin-top: 0;
+}*/
+
+p {
+  margin-top: -10px;
+  padding-top: -5px;
+  padding-bottom: 5px;
+}
 img {
-  margin-left: -15px;
+  height: 150px;
+  length: 150px;
+}
+
+.underline {
+  border-bottom: 2px solid white;
+  margin-left: 10px;
+  margin-right: 10px;
 }
