@@ -30,20 +30,29 @@ $(document).ready(function(){
         error: function newFrameError() {
           console.log('Error creating new frame')
         }
-      })
-    })
+      });
+    });
 
-});
+    /* - - - Delete Button functionality - - - */
+    $frameList.on('click', '.deleteBtn', function() {
+      $.ajax ({
+        method: 'DELETE',
+        url: '/api/frames/' + $(this).attr('data-id'),
+        success: frameDeletedSuccess,
+        error: function (err){
+            console.log(err);
+        }
+      });
+    });
 
-function renderPage() {
+}); //End Document Ready Function
+
+  function renderPage() {
     $frameList.empty();
-
       /* - - - Handlebars template variable  - - - */
     var frameResultHtml = template({ frames: allFrames });
-
       //Adding template output to page
-    $('#content').append(frameResultHtml)
-
+    $('#content').append(frameResultHtml);
 }
 
     /* - - - Success for ajax GET: Frames call - - - */
@@ -58,9 +67,24 @@ function renderPage() {
     console.log('uh oh');
     $('h2').text('Failed to load frames, is the server working?');
 }
-
+  /* - - - Frame Creation successful function - - - */
   function newFrameSuccess(json) {
     $('#newFrameForm input').val('');
     allFrames.push(json);
+    renderPage();
+  }
+
+  /* - - - Frame deletion successful function - - - */
+  function frameDeletedSuccess(json) {
+    var frame = json;
+    console.log(json);
+    var frameId = frame._id;
+    console.log('deleted frame', frameId);
+    for (var i = 0; i < allFrames.length; i++) {
+      if (allFrames[i]._id === frameId) {
+        allFrames.splice(i, 1);
+        break;
+      }
+    }
     renderPage();
   }

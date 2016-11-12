@@ -57,7 +57,7 @@ app.use(express.static('public'));
       travel: req.body.travel,
       year: req.body.year,
       price: req.body.price,
-      imageURL: req.body.imageURL + '?' //Trying this to see if it will add the ? symbol onto the end of the inputted url. needed for displaying on the page
+      imageURL: req.body.imageURL + '?' //Adding the ? symbol on the end to ensure visibility on page
     })
     /* --- Saves new frame to db --- */
     newFrame.save(function ( err, frame ) {
@@ -66,18 +66,28 @@ app.use(express.static('public'));
       }
       console.log('saved ', frame.name);
       res.json(frame);
-    })
+    });
+  });
 
-  })
+  /* --- Deletes Frame from db --- */
+  app.delete('/api/frames/:id', function ( req, res ) {
+    console.log('frame deleted', req.params);
+    var frameId = req.params.id;
+    db.Frame.findOneAndRemove({ _id: frameId }, function ( err, deleteFrame) {
+      if (err){
+        console.log(err);
+      }
+      res.json(deleteFrame);
+    });
+  });
 
-
-
+  /* --- Profile Object JSON --- */
   var profile = {
     name: 'Dan Kingdon',
     githubLink: 'https://github.com/dkingdon',
     githubProfileImage: 'https://avatars2.githubusercontent.com/u/9341340?v=3&s=460',
     personalSiteLink: 'https://dkingdon.github.io/',
-    currentCity: 'San Leandro', // is there something i can do that will update this dynamically? Maybe the router i hit when i turn on my mac?
+    currentCity: 'San Leandro',
     hobbies: [
       {name: 'Hockey', type: 'Ice', currentLevel: 'Intermediate'},
       {name: 'Mountain Biking', type: 'Downhill', currentLevel: 'Reckless'},
@@ -85,6 +95,10 @@ app.use(express.static('public'));
       {name: 'Video Games', type: 'Action/Adventure RPGs', currentLevel: 'Inactive'}
     ]
   }
+  /* --- Responds with profile data from the db --- */
+  app.get('/api/profile', function (req, res){
+    res.json({profile}); // returns profile variable defined above
+  }); // Profile end point STILL needs work
 
 /*
  * JSON API Endpoints
@@ -105,9 +119,7 @@ app.get('/api', function api_index(req, res) {
   })
 });
 
-app.get('/api/profile', function (req, res){
-  res.json({profile}); // returns profile variable defined above
-}); // Profile end point STILL needs work
+
 
 
 
