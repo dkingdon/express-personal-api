@@ -28,7 +28,7 @@ var frame_list = [{
   {
     name: 'Phoenix',
     brand: 'Pivot',
-    material: 'Carbon',
+    material: 'Carbon Fiber',
     suspension: true,
     travel: '204mm',
     year: '2015',

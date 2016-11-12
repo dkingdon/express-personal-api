@@ -14,6 +14,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Cream+Soda" rel="stylesheet">
+
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
 
@@ -61,14 +64,16 @@
               <div id="content">
                 <script id="frame-display-template" type="text/x-handlebars-template">
                 {{#each frames}}
+
             			<img src={{imageURL}}/> <!-- NOTE: should save these images locally and if the user clicks on the pic, maybe display a larger version. WIll need to see how to do that. Maybe MVP is just redirecting to its own page. -->
                   <div class="frame-info">
                     <h2>{{name}}</h2>
-                    <h3>{{brand}}</h3>
-                      <p>{{material}}</p>
-                      <p>{{year}}</p>
-                      <p>{{travel}} + Rear Travel</p> <!-- this will only appear if suspension is true. As of now, all sample bikes fit this, but may not be the case for any added frames -->
-              			<p>{{price}}</p>
+                    <h3><small>by: </small>{{brand}}</h3>
+                        <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
+                      <p><strong>Material: </strong>{{material}}</p>
+                      <p><strong>Built: </strong>{{year}}</p>
+                      <p><strong>Travel: </strong>{{travel}}</p> <!-- this will only appear if suspension is true. As of now, all sample bikes fit this, but may not be the case for any added frames -->
+              			<p><strong>Price: </strong>{{price}}</p>
                   </div>
                   <div class="underline"></div>
                 {{/each}}
