@@ -32,35 +32,59 @@ app.use(express.static('public'));
 /*
  * HTML Endpoints
  */
-    /* --- Calls index.html to default homepage --- */
-app.get('/', function homepage( req, res ) {
-  res.sendFile(__dirname + '/views/index.html');
-});
-
-    /* --- Calls all frame objects --- */
-app.get('/api/frames', function( req, res ) {
-  db.Frame.find( function ( err, frames){
-    if (err){
-      console.log('error has occured ', err);
-    }
-    res.json(frames);
+      /* --- Calls index.html to default homepage --- */
+  app.get('/', function homepage( req, res ) {
+    res.sendFile(__dirname + '/views/index.html');
   });
-});
+
+      /* --- Calls all frame objects --- */
+  app.get('/api/frames', function( req, res ) {
+    db.Frame.find( function ( err, frames ){
+      if (err){
+        console.log('error has occured ', err);
+      }
+      res.json(frames);
+    });
+  });
+
+  /* --- Creates new frame object with submit button --- */
+  app.post('/api/frames', function ( req, res ) {
+    var newFrame = new db.Frame({
+      name: req.body.name,
+      brand: req.body.brand,
+      material: req.body.material,
+      suspension: req.body.suspension,
+      travel: req.body.travel,
+      year: req.body.year,
+      price: req.body.price,
+      imageURL: req.body.imageURL + '?' //Trying this to see if it will add the ? symbol onto the end of the inputted url. needed for displaying on the page
+    })
+    /* --- Saves new frame to db --- */
+    newFrame.save(function ( err, frame ) {
+      if (err) {
+        console.log(err);
+      }
+      console.log('saved ', frame.name);
+      res.json(frame);
+    })
+
+  })
 
 
-var profile = {
-  name: 'Dan Kingdon',
-  githubLink: 'https://github.com/dkingdon',
-  githubProfileImage: 'https://avatars2.githubusercontent.com/u/9341340?v=3&s=460',
-  personalSiteLink: 'https://dkingdon.github.io/',
-  currentCity: 'San Leandro', // is there something i can do that will update this dynamically? Maybe the router i hit when i turn on my mac?
-  hobbies: [
-    {name: 'Hockey', type: 'Ice', currentLevel: 'Intermediate'},
-    {name: 'Mountain Biking', type: 'Downhill', currentLevel: 'Reckless'},
-    {name: 'Reading', type: ['Sci-Fi', 'Fantasy', 'Urban Fantasy'], currentLevel: 'Inactive'},
-    {name: 'Video Games', type: 'Action/Adventure RPGs', currentLevel: 'Inactive'}
-  ]
-}
+
+  var profile = {
+    name: 'Dan Kingdon',
+    githubLink: 'https://github.com/dkingdon',
+    githubProfileImage: 'https://avatars2.githubusercontent.com/u/9341340?v=3&s=460',
+    personalSiteLink: 'https://dkingdon.github.io/',
+    currentCity: 'San Leandro', // is there something i can do that will update this dynamically? Maybe the router i hit when i turn on my mac?
+    hobbies: [
+      {name: 'Hockey', type: 'Ice', currentLevel: 'Intermediate'},
+      {name: 'Mountain Biking', type: 'Downhill', currentLevel: 'Reckless'},
+      {name: 'Reading', type: ['Sci-Fi', 'Fantasy', 'Urban Fantasy'], currentLevel: 'Inactive'},
+      {name: 'Video Games', type: 'Action/Adventure RPGs', currentLevel: 'Inactive'}
+    ]
+  }
 
 /*
  * JSON API Endpoints

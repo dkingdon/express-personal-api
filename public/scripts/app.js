@@ -19,16 +19,29 @@ $(document).ready(function(){
       error: handleError
     });
 
+    /* - - - Submit new frame form  - - - */
+    $('#newFrameForm').on('submit', function (e) {
+      console.log('new frame', $(this).serializeArray());
+      $.ajax ({
+        method: 'POST',
+        url: '/api/frames',
+        data: $(this).serializeArray(),
+        success: newFrameSuccess,
+        error: function newFrameError() {
+          console.log('Error creating new frame')
+        }
+      })
+    })
+
 });
 
-function render() {
+function renderPage() {
     $frameList.empty();
 
       /* - - - Handlebars template variable  - - - */
     var frameResultHtml = template({ frames: allFrames });
 
       //Adding template output to page
-    // $frameList.append(frameResultHtml);
     $('#content').append(frameResultHtml)
 
 }
@@ -36,8 +49,8 @@ function render() {
     /* - - - Success for ajax GET: Frames call - - - */
   function handleSuccess(json) {
     allFrames = json;
-    console.log(json); // temp to see what the output is
-    render();
+    console.log(json); // NOTE: temp to see what the output is
+    renderPage();
 }
 
     /* - - - Fail for ajax GET: Frames call - - - */
@@ -45,3 +58,9 @@ function render() {
     console.log('uh oh');
     $('h2').text('Failed to load frames, is the server working?');
 }
+
+  function newFrameSuccess(json) {
+    $('#newFrameForm input').val('');
+    allFrames.push(json);
+    renderPage();
+  }
