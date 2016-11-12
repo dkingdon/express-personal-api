@@ -13,7 +13,7 @@ var frame_list = [{
     travel: '140mm',
     year: '2016',
     price: '$2,999.00',
-    image: 'http://static.jensonusa.com/images/Color-Image/Zoom/4/G00022RP.jpg'
+    imageURL: 'http://static.jensonusa.com/images/Color-Image/Zoom/4/G00022RP.jpg'
   },
   {
     name: 'Nomad CC Vivid',
@@ -23,7 +23,7 @@ var frame_list = [{
     travel: '165mm',
     year: '2017',
     price: '$3,249.00',
-    image: 'http://content.backcountry.com/images/items/900/SNZ/SNZ007B/MATCAR.jpg'
+    imageURL: 'http://content.backcountry.com/images/items/900/SNZ/SNZ007B/MATCAR.jpg'
   },
   {
     name: 'Phoenix',
@@ -33,7 +33,7 @@ var frame_list = [{
     travel: '204mm',
     year: '2015',
     price: '$3,299.00',
-    image: 'http://content.competitivecyclist.com/images/items/large/PIV/PIV001K/BLA.jpg'
+    imageURL: 'http://content.competitivecyclist.com/images/items/large/PIV/PIV001K/BLA.jpg'
   },
   {
     name: 'S-Works Enduro',
@@ -43,7 +43,7 @@ var frame_list = [{
     travel: '165mm',
     year: '2015',
     price: '$3,300.00',
-    image: 'http://p.vitalmtb.com/photos/products/10288/photos/8569/s780_2013_Specialized_S_Works_Enduro_Carbon_Frame.jpg?1341883254'
+    imageURL: 'http://p.vitalmtb.com/photos/products/10288/photos/8569/s780_2013_Specialized_S_Works_Enduro_Carbon_Frame.jpg?1341883254'
   }
 ];
 /* --- Deletes Frames from DB --- */

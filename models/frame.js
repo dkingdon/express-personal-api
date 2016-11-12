@@ -9,7 +9,7 @@
     travel: String,
     year: String,
     price: String,
-    image: String
+    imageURL: String
   });
 
 var Frame = mongoose.model('Frame', FrameSchema);
