@@ -47,6 +47,19 @@ app.use(express.static('public'));
     });
   });
 
+  /* --- Searches for frames by manufacturer --- */
+  // app.get('/api/frames/:brand', function ( req, res) {
+  //   var brand = req.params.brand;
+  //   db.Frame.findOne({brand: brand})
+  //     .populate('#content')
+  //     .exec(function ( err, data) {
+  //       if (err){
+  //         console.log(err);
+  //       }
+  //       res.json(data);
+  //     })
+  //   }); /NOTE: could not get this search function working.
+
   /* --- Creates new frame object with submit button --- */
   app.post('/api/frames', function ( req, res ) {
     var newFrame = new db.Frame({
@@ -73,7 +86,7 @@ app.use(express.static('public'));
   app.delete('/api/frames/:id', function ( req, res ) {
     console.log('frame deleted', req.params);
     var frameId = req.params.id;
-    db.Frame.findOneAndRemove({ _id: frameId }, function ( err, deleteFrame) {
+    db.Frame.findOneAndRemove({ _id: frameId }, function ( err, deleteFrame ) {
       if (err){
         console.log(err);
       }
@@ -96,9 +109,10 @@ app.use(express.static('public'));
     ]
   }
   /* --- Responds with profile data from the db --- */
-  app.get('/api/profile', function (req, res){
+  app.get('/api/profile', function ( req, res ){
     res.json({profile}); // returns profile variable defined above
-  }); // Profile end point STILL needs work
+  });
+
 
 /*
  * JSON API Endpoints
@@ -107,30 +121,23 @@ app.use(express.static('public'));
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
+    woopsIForgotToDocumentAllMyEndpoints: false,
     message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express_self_api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    documentationUrl: "https://github.com/dkingdon/express-personal-api/blob/master/README.md",
+    baseUrl: "http://daniel-kingdon.herokuapp.com",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about me" }, // CHANGE ME
+      {method: "POST", path: "/api/frames", description: "Adds new frame object to the DB"},
+      {method: "DELETE", path: "/api/frames", despription: "Deletes the selected frame object from the DB" }
     ]
   })
 });
-
-
-
 
 
 /**********
  * SERVER *
  **********/
 
-
-
 // listen on port 3000
 app.listen(process.env.PORT || 3000)
-//   function () {
-//   console.log('Express server is up and running on http://localhost:3000/');
-// });

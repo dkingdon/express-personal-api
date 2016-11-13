@@ -63,6 +63,15 @@
               <!-- Wonder if i put the image here?  -->
               <button type="submit" class="btn btn-default">Add Frame</button>
             </form>
+            <div class="search-form">
+              <form class="form-inline" id="searchFrames">
+                <div class="form-group-search">
+                  <label for="title">Search by Brand</label>
+                  <input type="text" class="form-control" name="brand" placeholder="Manufacturer"/>
+                  <button type="submit" class="btn btn-default searchBtn" data-id={{brand}}>Search Brand</button>
+                </div>
+              </form>
+            </div>
 
             <!-- handlebars Template -->
               <div id="content">

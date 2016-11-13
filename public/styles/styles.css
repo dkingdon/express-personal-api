@@ -2,6 +2,7 @@ body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
   background-color: skyblue; /* Sanity Check! */
+  background: url(https://scontent.fsnc1-1.fna.fbcdn.net/t31.0-8/14525029_10209391248490502_3430970016575066364_o.jpg);
 }
 
 .row {
@@ -26,6 +27,12 @@ body {
   border: 1px solid white;
 }
 
+h1 {
+  color: white;
+  font-weight: 800;
+  font-stretch: extra-expanded;
+}
+
 h2 {
   text-align: center;
   margin-top: 8px;
@@ -34,9 +41,11 @@ h2 {
   font-family: 'Cherry Cream Soda', sans-serif; ;
 }
 
-/*h2, h3 {
-  display: inline;
-}*/
+a {
+  color: white;
+  text-align: center;
+  font-size: 22px;
+}
 
 h3 {
   margin-top: 7px;
@@ -57,6 +66,18 @@ img {
 .deleteBtn {
   margin-right: 10px;
   margin-top: 5px;
+}
+
+.search-form {
+  border: 1px solid white;
+  background-color: #8B8989;
+  text-align: center;
+  color: white;
+}
+
+.searchBtn {
+  margin-left: 150px;
+  background-color: #00CC66;
 }
 
 .underline {

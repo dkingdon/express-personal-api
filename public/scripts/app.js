@@ -45,6 +45,19 @@ $(document).ready(function(){
       });
     });
 
+    /* - - - Searches by brand - - - */
+    // $frameList.on('click', '.searchBtn', function () {
+    //   console.log('search btn pressed');
+    //   $.ajax ({
+    //     method: 'GET',
+    //     url: '/api/frames/' + $(this).attr('data-id'),
+    //     success: handleSuccess,
+    //     error: function (){
+    //       console.log("Error performing search");
+    //     }
+    //   });
+    // }); NOTE: Not working, WHY??
+
 }); //End Document Ready Function
 
   function renderPage() {
