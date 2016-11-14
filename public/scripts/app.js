@@ -46,10 +46,10 @@ $(document).ready(function(){
     });
 
     /* - - - Updates rating - - - */
-            // NOTE: not working. Commenting out to get what i do have working on heroku 
+            // NOTE: not working. Commenting out to get what i do have working on heroku
     // $frameList.on('click', '.ratingBtn', function (e) {
     //   // e.preventDefault();
-    //   rating = prompt('Rate this frame: out of 5');
+    //   rating = prompt('Rate this frame: out of 5') + ' / 5';
     //   console.log(rating + ' / 5');
     //     $.ajax({
     //       method: 'POST',
