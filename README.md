@@ -22,7 +22,7 @@
 
 ## API Documentation
 
-| Field Name | Path         | Description                    |
+| Type | Path         | Description                    |
 | :--------: |:------------:| :------------------------------|
 | GET        | '/'          | Displays index.html on homepage |
 | GET        | '/api'       | Redirects to full outline of api routs and descriptions |
@@ -30,7 +30,7 @@
 | GET        | '/api/frames' | Redirects to page containing full JSON objects of of bike frames in the db |
 | POST       | '/api/frames' | Adds new frame to the db using address bar query params |
 | DELETE     | 'api/frames/:id' | Delete db object of selected frame by ID |
-| PUT        | TBD  | Not in working order, but designed to add new "Rating" key value pare to existing objects and display on the homepage |
+| PUT        | TBD  | Not in working order, but designed to add new "Rating" key value pair to existing objects and display on the homepage |
 
 ## Resources
 * Express - http://expressjs.com/en/api.html
