@@ -1,6 +1,10 @@
   var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+  var RatingSchema = new Schema({
+    rating: String
+  });
+
   var FrameSchema = new Schema({
     name: String,
     brand: String,
@@ -9,8 +13,12 @@
     travel: String,
     year: String,
     price: String,
-    imageURL: String
+    imageURL: String,
+    rating: String
+
   });
+
+
 
 var Frame = mongoose.model('Frame', FrameSchema);
 

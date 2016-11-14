@@ -13,6 +13,7 @@ var frame_list = [{
     travel: '140mm',
     year: '2016',
     price: '$2,999.00',
+    rating: '5 Value visible for testing',
     imageURL: "http://static.jensonusa.com/images/Color-Image/Zoom/4/G00022RP.jpg?"
   },
   {

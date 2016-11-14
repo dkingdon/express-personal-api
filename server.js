@@ -94,6 +94,25 @@ app.use(express.static('public'));
     });
   });
 
+  /* --- Creating and adding a frame rating --- */
+        // NOTE: not working. Commenting out to get what i do have working on heroku 
+  // app.post('/api/frames/:id/rating', function ( req, res ) {
+  //   var frameId = req.params.id;
+  //   db.Frame.findById(frameId)
+  //   // .populate('frame')
+  //   .exec(function ( err, foundFrame){
+  //     console.log(foundFrame);
+  //       if (err) {
+  //         console.log(err)
+  //       }
+  //       else {
+  //         foundFrame.rating.push(req.body);
+  //         foundFrame.save();
+  //         res.status(201).json(foundFrame);
+  //       }
+  //   })
+  // });
+
   /* --- Profile Object JSON --- */
   var profile = {
     name: 'Dan Kingdon',

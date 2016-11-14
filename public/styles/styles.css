@@ -38,7 +38,8 @@ h2 {
   margin-top: 8px;
   padding-bottom: -10px;
   margin-bottom: -10px;
-  font-family: 'Cherry Cream Soda', sans-serif; ;
+  font-family: 'Cherry Cream Soda', sans-serif;
+  text-shadow:1px 0px 3px gray;
 }
 
 a {
@@ -50,6 +51,7 @@ a {
 h3 {
   margin-top: 7px;
   text-align: center;
+  text-shadow:1px 0px 3px gray;
 }
 
 p {
@@ -73,11 +75,17 @@ img {
   background-color: #8B8989;
   text-align: center;
   color: white;
+  margin-top: 10px;
 }
 
 .searchBtn {
-  margin-left: 150px;
+  margin-left: 180px;
   background-color: #00CC66;
+}
+
+.ratingBtn {
+  margin-right: 10px;
+  margin-top: -55px;
 }
 
 .underline {
